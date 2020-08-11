@@ -1,9 +1,34 @@
 <p>Luciana</p>
 
+<button (click)="sw = false;">Change SW</button>
+
+
+<div *ngFor="let person of persons; let i = index">
+  <p>{{person}}========{{i}}</p>
+</div>
+
+
 <div [ngSwitch]="aux">
   <p *ngSwitchCase="3">el valor es 3</p>
   <p *ngSwitchCase="2">el valor es 2</p>
-  <p *ngSwitchDefault>no tiene valor</p>
+  <p *ngSwitchDefault>No es ni 3 ni 2</p>
+</div>
+
+
+<button (click)="auxColor = 'green'">verde</button>
+<button (click)="auxColor = 'blue'">azul</button>
+<button (click)="auxColor = 'red'">rojo</button>
+<div [ngStyle]="{'border': '1px solid ' + auxColor, 'color': auxColor}">
+  personas
+</div>
+
+<button (click)="auxClass = !auxClass">Change class</button>
+<div [ngClass]="{'test1': auxClass, 'test2': !auxClass}">
+  ng class example
+</div>
+
+<div [class.test1]="auxClass">
+  class example
 </div>
 
 <!--<app-test1 name="luciana" (clickSave)="clickSaveChild($event)"> </app-test1>-->

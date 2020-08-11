@@ -8,7 +8,18 @@ import { from, fromEvent } from 'rxjs'
 })
 export class AppComponent implements OnInit {
   title = 'curso-angular';
-  aux = 2;
+
+  sw = true;
+
+  persons = ['p1', 'p1']
+
+
+  aux = 3;
+
+
+  auxColor = 'red';
+
+  auxClass = true;
   ngOnInit(){
     /*const array = from( [0, 1, 2] );
     array.subscribe(a => console.log('item: ', a))
