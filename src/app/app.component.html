@@ -1,3 +1,10 @@
 <p>Luciana</p>
 
-<app-test1 name="luciana" (clickSave)="clickSaveChild($event)"> </app-test1>
+<div [ngSwitch]="aux">
+  <p *ngSwitchCase="3">el valor es 3</p>
+  <p *ngSwitchCase="2">el valor es 2</p>
+  <p *ngSwitchDefault>no tiene valor</p>
+</div>
+
+<!--<app-test1 name="luciana" (clickSave)="clickSaveChild($event)"> </app-test1>-->
+
