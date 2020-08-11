@@ -11,7 +11,21 @@ export class AppComponent implements OnInit {
 
   sw = true;
 
-  persons = ['p1', 'p1']
+  persons = [
+    {
+      name: 'p1',
+      lastName: 'x',
+      age: 22,
+      enable: true
+    },
+    {
+      name: 'p2',
+      lastName: 'y',
+      age: 22,
+      enable: false
+    },
+    
+  ]
 
 
   aux = 3;

@@ -1,6 +1,15 @@
 <p>Luciana</p>
 
-<button (click)="sw = false;">Change SW</button>
+<div *ngFor="let person of persons">
+  <div [ngStyle]="{'background': person.enable ? 'lightgreen' : 'pink'}">
+    <persona [name]="person.name"
+           [lastName]="person.lastName" 
+           [age]="person.age" 
+           [enable]="person.enable">
+   </persona>
+  </div>
+</div>
+<!--<button (click)="sw = false;">Change SW</button>
 
 
 <div *ngFor="let person of persons; let i = index">
@@ -29,7 +38,7 @@
 
 <div [class.test1]="auxClass">
   class example
-</div>
+</div>-->
 
 <!--<app-test1 name="luciana" (clickSave)="clickSaveChild($event)"> </app-test1>-->
 
