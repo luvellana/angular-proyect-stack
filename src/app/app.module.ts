@@ -2,19 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { Test1Component } from './test1/test1.component';
-import { PersonaComponent } from './persona/persona.component';
+import { FormsModule } from '@angular/forms';
+import { PersonaModule } from './modules/persona/persona.module';
+import { ProductoModule } from './modules/product/product.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    Test1Component,
-    PersonaComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    PersonaModule,
+    ProductoModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
