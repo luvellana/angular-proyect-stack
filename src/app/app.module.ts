@@ -7,10 +7,12 @@ import { PersonaModule } from './modules/persona/persona.module';
 import { ProductoModule } from './modules/product/product.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { UserModule } from './modules/user/user.module';
+import { TestPipe } from './pipes/test.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TestPipe
   ],
   imports: [
     BrowserModule,
