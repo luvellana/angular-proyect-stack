@@ -12,6 +12,8 @@ import { Us2Component } from './components/us2/us2.component';
     Us2Component
   ],
   exports: [
+    Us1Component,
+    Us2Component
 
   ]
 })
