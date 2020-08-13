@@ -5,17 +5,20 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { PersonaModule } from './modules/persona/persona.module';
 import { ProductoModule } from './modules/product/product.module';
-
+import { AdminModule } from './modules/admin/admin.module';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     PersonaModule,
-    ProductoModule
+    ProductoModule,
+    AdminModule,
+    UserModule
   ],
   providers: [
   ],
