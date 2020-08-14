@@ -43,6 +43,16 @@ export class AppComponent implements OnInit {
     const aux = fromEvent(document, 'mousemove');
 
     aux.subscribe((a:a) => console.log('event: ', a.clientX + ', ' + a.clientY))*/
+  console.log('PURA: ', this.pura(6, 2));
+    console.log('IMPURA: ', this.impura(6, 2));
+  }
+
+  pura(a:number, b:number){
+    return a + b;
+  }
+
+  impura(a:number, b:number){
+    return a + b + Math.random();
   }
   
 }

@@ -15,10 +15,11 @@ Value: <input type="text" [(ngModel)]="auxNumber">
 Exponent: <input type="text" [(ngModel)]="auxExponent" >
 <p>{{ auxNumber | expo: auxExponent : 'Holi'  }}</p>
 
-<p>Pure: {(numbers | pure)} </p>
-<p>Impure: {(numbers | impure)} </p>
+<p>PURE: {{numbers | pure}}</p>
+<p>IMPURE: {{numbers | impure}}</p>
 
-<button {click}="numbers.push(4)">Add</button>
+
+<button (click)="numbers.push(4)">Add</button>
 
 <!--<app-adm1></app-adm1>
 
