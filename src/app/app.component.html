@@ -10,7 +10,12 @@
   </div>
 </div>
 
-<app-adm1></app-adm1>
+
+Value: <input type="text" [(ngModel)]="auxNumber">
+Exponent: <input type="text" [(ngModel)]="auxExponent" >
+<p>{{ auxNumber | expo: auxExponent : 'Holi'  }}</p>
+
+<!--<app-adm1></app-adm1>
 
 <app-us1></app-us1>
 
@@ -22,6 +27,8 @@
 
 <p>VAR NAME:{{name | test}}</p>
 
+
+<p>{{ 4 | expo: 2  }}</p>-->
 
 <!--<button (click)="sw = false;">Change SW</button>
 
