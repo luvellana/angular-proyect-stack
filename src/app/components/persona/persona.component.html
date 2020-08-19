@@ -1,0 +1,13 @@
+<div *ngIf="!emitido" style="display:flex ; border: 1px solid black; background:{{habilitado ? 'green': 'red'}}; color: white ; width: 350px; height: 100px; align-items: center; margin: 10px;">
+
+ <div style="display:flex; flex-direction: column; margin: 10px">
+  <span>NAME: {{name}}</span>
+  <span>LAST NAME: {{lastname}}</span>
+  <span>HABILITADO: {{habilitado ? "Sí" : "No"}}</span>
+  <span>FECHA: {{fechanac | fecha}}</span>
+ </div>
+  <button (click)=EmitirVoto() [disabled]="!habilitado" style="width:80px; height: 30px; background: blue ; border: 1px solid white; margin-left: auto; margin-right: 10px; color: white;"> <b>Votar</b> </button>
+  
+  
+
+</div>
