@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html'
+  selector: 'app-list',
+  templateUrl: './list.component.html'
 })
-export class AdminComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   constructor() { }
 
