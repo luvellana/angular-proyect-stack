@@ -1,45 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from '../../../services/product.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
 
-  products = [
-    {
-      description: 'aaaaa',
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      ownerId: 1,
-      price: 12,
-      title: 'saltenhas'
-    },
-    {
-      description: 'aaaaa',
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      ownerId: 1,
-      price: 12,
-      title: 'saltenhas'
-    },
-    {
-      description: 'aaaaa',
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      ownerId: 1,
-      price: 12,
-      title: 'saltenhas'
-    },
-    {
-      description: 'aaaaa',
-      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-      ownerId: 1,
-      price: 12,
-      title: 'saltenhas'
-    }
-  ];
+  products = [];
 
-  constructor() { }
+  constructor(private productService: ProductService) {
+
+  }
 
   ngOnInit(): void {
+
+    this.products = this.productService.getProducts();
+
   }
 
 }
