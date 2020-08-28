@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../../services/product.service';
 
 @Component({
@@ -15,7 +15,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(res => {
+
+      console.log('RESPUESTA: ', res);
+      console.log('RESPUESTA: ', Object.entries(res));
+
+      Object.entries(res).map(p => this.products.push(p[1]));
+
+    });
 
   }
 
