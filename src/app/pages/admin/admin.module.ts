@@ -3,8 +3,9 @@ import {CommonModule} from '@angular/common';
 
 import {AdminRoutingModule} from './admin-routing.module';
 import {AdminComponent} from './admin/admin.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ProductService } from '../../services/product.service';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ProductService} from '../../services/product.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProductService } from '../../services/product.service';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     ProductService
