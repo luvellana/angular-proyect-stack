@@ -17,4 +17,8 @@ export class ProductService {
     return this.http.post('https://angular-proyect-stack.firebaseio.com/products.json', product);
   }
 
+  public deleteProduct(id: any): Observable<any> {
+    return this.http.delete(`https://angular-proyect-stack.firebaseio.com/products.json`);
+  }
+
 }
