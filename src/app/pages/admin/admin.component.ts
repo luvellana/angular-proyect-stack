@@ -4,7 +4,6 @@ import {ProductService} from '../../../services/product.service';
 import {Subscription} from 'rxjs';
 
 @Component({
-  selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })

@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  app: {
+    apiBaseUrl: 'https://angular-proyect-stack.firebaseio.com'
+  },
+  auth: {
+    apiBaseUrl: 'https://identitytoolkit.googleapis.com',
+    key: 'AIzaSyDaFJchtbUGQbec7cIZaX_AoLJicbiHieI'
+  }
 };
 
 /*
