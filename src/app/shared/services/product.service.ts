@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { environment } from '../../../environments/environment.prod';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class ProductService {
@@ -13,6 +13,10 @@ export class ProductService {
 
   public getProducts(): Observable<any> {
     return this.http.get(`${this.url}/products.json`);
+  }
+
+  public getProductsById(id: any): Observable<any> {
+    return this.http.get(`${this.url}/products.json?orderBy="ownerId"&equalTo="${id}"&print=pretty`);
   }
 
   public addProduct(product: any): Observable<any> {

@@ -1,33 +1,40 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthService} from '../shared/services/auth.service';
 
 @Component({
-  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent implements OnInit {
 
-  username = '';
-  password = '';
-
-  sw = true;
-
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    if (this.authService.verifyLogged()) {
+      this.router.navigate(['pages']);
+    }
   }
 
-  onLogin(): void {
-    console.log('USENAME: ', this.username);
-    console.log('PASSWORD: ', this.password);
-  }
+  onLogin(form: any): void {
+    console.log('FORM: ', form.value);
 
-  onLogin2(form): void {
-    console.log('VARIABLE LOCAL FORM: ', form.value);
-    this.router.navigate(['/pages']);
+    this.authService.login({
+      email: form.value.email,
+      password: form.value.password,
+      returnSecureToken: true
+    }).subscribe(
+      res => {
+        console.log('LOGIN RESPONSE: ', res);
+        this.router.navigate(['pages']);
+      },
+      err => {
+        console.log('LOGIN ERROR: ');
+      }
+    );
   }
 
 }

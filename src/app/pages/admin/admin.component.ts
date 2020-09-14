@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ProductService} from '../../shared/services/product.service';
 import {Subscription} from 'rxjs';
-import { ProductService } from '../../shared/services/product.service';
+import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
   templateUrl: './admin.component.html',
@@ -22,6 +23,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   // nameControl = new FormControl();
 
   constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
               private productService: ProductService) {
   }
 
@@ -41,7 +43,8 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   loadProduct(): void {
     this.products = [];
-    this.productGetSubs = this.productService.getProducts().subscribe(res => {
+    const userId = this.authService.getUserId();
+    this.productGetSubs = this.productService.getProductsById(userId).subscribe(res => {
       Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
     });
   }
@@ -64,7 +67,13 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   onUpdateProduct(): void {
-    this.productUpdateSubs = this.productService.updateProduct(this.idEdit, this.productForm.value).subscribe(
+    this.productUpdateSubs = this.productService.updateProduct(
+      this.idEdit,
+      {
+        ...this.productForm.value,
+        ownerId: this.authService.getUserId()
+      }
+    ).subscribe(
       res => {
         console.log('RESP UPDATE: ', res);
         this.loadProduct();
@@ -80,7 +89,10 @@ export class AdminComponent implements OnInit, OnDestroy {
   }*/
 
   onEnviar2(): void {
-    this.productSubs = this.productService.addProduct(this.productForm.value).subscribe(
+    this.productSubs = this.productService.addProduct({
+      ...this.productForm.value,
+      ownerId: this.authService.getUserId()
+    }).subscribe(
       res => {
         console.log('RESP: ', res);
       },
