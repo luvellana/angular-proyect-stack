@@ -1,0 +1,14 @@
+<mat-card class="example-card"  style="display:flex ; flex-direction: column;  border: 1px solid black; background:{{stock!=0 ? 'orange': 'red'}}; color: white ; margin: 10px;">
+      <mat-card-header>
+        <mat-card-title>Nombre: {{name | uppercase}}</mat-card-title>
+        <mat-card-title>Stock: {{stock}}</mat-card-title>
+        <mat-card-subtitle>{{price}} {{type==="internacional" ? "$" : "Bs."}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="imageUrl" >
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+          <button *ngIf='{{stock!=0}}' mat-button (click)="onEdit(); drawer.toggle()">Edit</button>
+          <button mat-button (click)="onDelete()">Delete</button>
+        </mat-card-actions>
+    </mat-card>

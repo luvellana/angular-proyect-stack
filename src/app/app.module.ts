@@ -13,7 +13,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ProductService } from './product.service';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  }
+];
 
 @NgModule({
   declarations: [
@@ -33,7 +42,7 @@ import { ProductService } from './product.service';
     MatInputModule,
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
