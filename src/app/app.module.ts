@@ -1,4 +1,4 @@
- import { BrowserModule } from '@angular/platform-browser';
+/import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -14,7 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {RouterModule, Routes} from '@angular/router';
-import { AuthService } from './shared/service/auth.service';
+import { AuthService } from './shared/services/auth.service';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 const routes: Routes = [

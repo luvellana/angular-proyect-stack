@@ -5,7 +5,7 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { BarraComponent } from './components/barra/barra.component';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
-import { ProductService } from '../shared/service/product.service';
+import { ProductService } from '../shared/services/product.service';
 
 
 @NgModule({
