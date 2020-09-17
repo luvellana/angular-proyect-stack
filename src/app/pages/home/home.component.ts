@@ -1,6 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ProductService} from '../../shared/services/product.service';
 import {Subscription} from 'rxjs';
-import { ProductService } from '../../shared/services/product.service';
+import {Store} from '@ngrx/store';
+import {AddProduct} from './store/home.actions';
 
 @Component({
   templateUrl: './home.component.html',
@@ -12,15 +14,28 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   productSubs: Subscription;
 
-  constructor(private productService: ProductService) {
+  homeSubs: Subscription;
+
+  cart = [];
+
+  constructor(private store: Store<any>,
+              private productService: ProductService) {
 
   }
 
   ngOnInit(): void {
 
-   this.productSubs = this.productService.getProducts().subscribe(res => {
+    this.homeSubs = this.store.select(s => s.home).subscribe(res => {
+      this.cart = Object.assign([], res.items);
+      // JSON.parse((JSON.stringify(res))
+    });
 
-    
+    this.productSubs = this.productService.getProducts().subscribe(res => {
+
+      // [1,2,3,4,5,6];
+      // {{key:1 },{key: 2},{key: 1},{key: 1},{key: 1},{key: 1},{key: 1}}
+      // Object.entries(res) [ [key, 1], [key, 2] , .......              ];
+
       console.log('RESPUESTA: ', res);
       console.log('RESPUESTA: ', Object.entries(res));
 
@@ -32,6 +47,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
+    this.homeSubs ? this.homeSubs.unsubscribe() : '';
+  }
+
+  onComprar(product): void {
+    this.store.dispatch(AddProduct({product: Object.assign({}, product)}));
   }
 
 }
