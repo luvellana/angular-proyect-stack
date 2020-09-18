@@ -85,7 +85,8 @@ onDelete(id: any): void {
   }
 
   onSearch(){
-    this.searchedSend = this.searched;
+    this.searchedSend = this.searched.toLowerCase();
+
     this.loadProduct();
   }
 
