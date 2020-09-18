@@ -14,12 +14,14 @@ export class AdminComponent implements OnInit {
   products = [];
 
   productForm: FormGroup;
-
   productSubs: Subscription;
   productGetSubs: Subscription;
   productDeleteSubs: Subscription;
   productUpdateSubs: Subscription;
   idEdit: any;
+
+  searched:any;
+  searchedSend:any;
 
    constructor(private formBuilder: FormBuilder,
               private productService: ProductService) {
@@ -35,6 +37,7 @@ export class AdminComponent implements OnInit {
       stock: '',
       type: ['', [Validators.required]]
     });
+    
   }
 
   loadProduct(): void {
@@ -80,5 +83,11 @@ onDelete(id: any): void {
     this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
     this.productUpdateSubs ? this.productUpdateSubs.unsubscribe() : '';
   }
+
+  onSearch(){
+    this.searchedSend = this.searched;
+    this.loadProduct();
+  }
+
 
 }

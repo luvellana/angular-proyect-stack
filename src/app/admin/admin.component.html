@@ -1,5 +1,8 @@
   <app-barra></app-barra>
-
+  <div>
+      <input type="text" [(ngModel)]="searched">
+      <button (click)="onSearch()" >SEARCH</button>
+  </div>
 
   <mat-drawer #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
 
@@ -71,7 +74,7 @@
        class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
        style="display:flex" >
 
-    <app-tarjetas *ngIf="product.type=='nacional'" (edit)='onEdit(product); drawer.toggle()' (delete)='onDelete(product.id)'  [name]='product.name' 
+    <app-tarjetas *ngIf="product.type=='nacional' && (searchedSend==null || product.name.includes(searchedSend))" (edit)='onEdit(product); drawer.toggle()' (delete)='onDelete(product.id)'  [name]='product.name' 
     [id]='product.id' 
     [stock]='product.stock'
     [type]='product.type'
@@ -90,7 +93,7 @@
        class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
        style="display:flex">
 
-    <app-tarjetas *ngIf="product.type=='internacional'" (edit)='onEdit(product);' (delete)='onDelete(product.id)' [name]='product.name' 
+    <app-tarjetas *ngIf="product.type=='internacional' && (searchedSend==null || product.name.includes(searchedSend))" (edit)='onEdit(product);' (delete)='onDelete(product.id)' [name]='product.name' 
     [id]='product.id' 
     [stock]='product.stock'
     [type]='product.type'
