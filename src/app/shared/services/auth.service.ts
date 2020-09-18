@@ -19,15 +19,14 @@ export class AuthService {
   public login(body: any): Observable<any> {
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(
       map((res: any) => {
-        this.authSuccess(res.idToken, res.localId);
+        this.authSuccess(res.idToken);
         return res;
       })
     );
   }
 
-  private authSuccess(token: string, userId: string): void {
+  private authSuccess(token: string): void {
     localStorage.setItem('token', token);
-    localStorage.setItem('userId', userId);
   }
 
   public getToken(): string {
@@ -45,7 +44,6 @@ export class AuthService {
 
   public logout(): void {
     localStorage.removeItem('token');
-    localStorage.removeItem('userId');
     this.router.navigate(['login']);
   }
 
