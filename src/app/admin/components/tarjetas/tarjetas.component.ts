@@ -21,11 +21,11 @@ export class TarjetasComponent implements OnInit {
   ngOnInit() {
     
   }
-  OnEdit(){
-    this.edit.emit()
+  OnEdit(): void{
+    this.edit.emit();
   }
-  OnDelet(){
-    this.delete.emit()
+  OnDelete(): void{
+    this.delete.emit();
   }
 
 }

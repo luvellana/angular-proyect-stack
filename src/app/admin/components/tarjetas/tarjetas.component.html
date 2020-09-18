@@ -6,7 +6,7 @@
       </mat-card-header>
       <img mat-card-image [src]="imageUrl" >
       <mat-card-actions>
-          <button *ngIf="{{stock!=0}}" mat-button (click)="onEdit()">Edit</button>
-          <button mat-button (click)="onDelete()">Delete</button>
+          <button *ngIf="stock!=0" mat-button (click)="OnEdit()">Edit</button>
+          <button mat-button (click)="OnDelete()">Delete</button>
       </mat-card-actions>
     </mat-card>
