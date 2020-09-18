@@ -2,11 +2,11 @@
       <mat-card-header>
         <mat-card-title>Nombre: {{name | uppercase}}</mat-card-title>
         <mat-card-title>Stock: {{stock}}</mat-card-title>
-        <mat-card-subtitle>{{price}} {{type==="internacional" ? "$" : "Bs."}}</mat-card-subtitle>
+        <mat-card-subtitle>{{price}}{{type==="internacional" ? "$" : "Bs."}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image [src]="imageUrl" />
+      <img mat-card-image [src]="imageUrl" >
       <mat-card-actions>
-          <button *ngIf='{{stock!=0}}' mat-button (click)="onEdit()">Edit</button>
+          <button *ngIf="{{stock!=0}}" mat-button (click)="onEdit()">Edit</button>
           <button mat-button (click)="onDelete()">Delete</button>
       </mat-card-actions>
     </mat-card>
